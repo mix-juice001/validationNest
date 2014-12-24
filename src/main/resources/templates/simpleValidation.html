@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<form action="#" th:action="@{/sample}" th:object="${person}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" th:class="${#fields.hasErrors('name')}? 'error-input'"/></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-message">Name Error</td>
+        </tr>
+        <tr>
+            <td>age:</td>
+            <td><input type="text" th:field="*{age}" th:class="${#fields.hasErrors('age')}? 'error-input'"/></td>
+            <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error-message">Age Error</td>
+        </tr>
+        <tr>
+            <td>sex:</td>
+            <td><input type="text" th:field="*{sex}" th:class="${#fields.hasErrors('sex')}? 'error-input'"/></td>
+            <td th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}" class="error-message">Sex Error</td>
+        </tr>
+        <tr>
+            <td>Car-color:</td>
+            <td><input type="text" th:field="*{car.color}" th:class="${#fields.hasErrors('car.color')}? 'error-input'"/></td>
+            <td th:if="${#fields.hasErrors('car.color')}" th:errors="*{car.color}" class="error-message">Car-color Error</td>
+        </tr>
+        <tr>
+            <td>Car-model:</td>
+            <td><input type="text" th:field="*{car.model}" th:class="${#fields.hasErrors('car.model')}? 'error-input'"/></td>
+            <td th:if="${#fields.hasErrors('car.model')}" th:errors="*{car.model}" class="error-message">Car-model Error</td>
+        </tr>
+        <tr>
+            <td>Car-constructionYear:</td>
+            <td><input type="text" th:field="*{car.constructionYear}" th:class="${#fields.hasErrors('car.constructionYear')}? 'error-input'"/></td>
+            <td th:if="${#fields.hasErrors('car.constructionYear')}" th:errors="*{car.constructionYear}" class="error-message">Car-constructionYear Error</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
